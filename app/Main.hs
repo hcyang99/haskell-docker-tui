@@ -50,7 +50,7 @@ runDockerImagePull oldInfo = do
     newInfo <- UIDockerPull.uiDockerPull oldInfo 
     case UIDockerPull.getCancel newInfo of
         True -> do 
-            resultDialog "Pull Image" "Cancelled"
+            -- resultDialog "Pull Image" "Cancelled"
             runMainMenu
         False -> do 
             res <- execPull $ unpack $ UIDockerPull.getImage newInfo
@@ -62,7 +62,7 @@ runDockerImageRm oldInfo = do
     newInfo <- UIDockerImageRm.uiDockerImageRm oldInfo
     case UIDockerImageRm.getCancel newInfo of
         True -> do 
-            resultDialog "Remove Image" "Cancelled"
+            -- resultDialog "Remove Image" "Cancelled"
             runMainMenu
         False -> do 
             res <- execImageRm $ unpack $ UIDockerImageRm.getImage newInfo
@@ -74,7 +74,7 @@ runDockerRm oldInfo = do
     newInfo <- UIDockerContainerRm.uiDockerContainerRm oldInfo 
     case UIDockerContainerRm.getCancel newInfo of 
         True -> do 
-            resultDialog "Remove Container" "Cancelled"
+            -- resultDialog "Remove Container" "Cancelled"
             runMainMenu
         False -> do 
             res <- execContainerRm $ unpack $ UIDockerContainerRm.getContainer newInfo
@@ -86,7 +86,7 @@ runDockerExec oldInfo = do
     newInfo <- UIDockerExec.uiDockerExec oldInfo 
     case UIDockerExec.getCancel newInfo of 
         True -> do 
-            resultDialog "Execute Command" "Cancelled"
+            -- resultDialog "Execute Command" "Cancelled"
             runMainMenu
         False -> do 
             res <- execExec (unpack $ UIDockerExec.getContainer newInfo) (unpack $ UIDockerExec.getCommand newInfo)
@@ -98,7 +98,7 @@ runDockerStart oldInfo = do
     newInfo <- UIDockerStart.uiDockerStart oldInfo 
     case UIDockerStart.getCancel newInfo of 
         True -> do 
-            resultDialog "Start Container" "Cancelled"
+            -- resultDialog "Start Container" "Cancelled"
             runMainMenu
         False -> do 
             res <- execStart $ unpack $ UIDockerStart.getContainer newInfo
@@ -110,7 +110,7 @@ runDockerStop oldInfo = do
     newInfo <- UIDockerStop.uiDockerStop oldInfo 
     case UIDockerStop.getCancel newInfo of 
         True -> do 
-            resultDialog "Stop Container" "Cancelled"
+            -- resultDialog "Stop Container" "Cancelled"
             runMainMenu
         False -> do 
             res <- execStop $ unpack $ UIDockerStop.getContainer newInfo 
@@ -122,7 +122,7 @@ runDockerRun oldInfo = do
     newInfo <- R.uiDockerRun oldInfo 
     case R.getCancel newInfo of 
         True -> do 
-            resultDialog "Run Container" "Cancelled"
+            -- resultDialog "Run Container" "Cancelled"
             runMainMenu
         False -> do 
             let 
@@ -137,7 +137,7 @@ runDockerRun oldInfo = do
                 cancel = R.getCancel newInfo 
             case cancel of 
                 True -> do 
-                    resultDialog "Run Container" "Cancelled"
+                    -- resultDialog "Run Container" "Cancelled"
                     runMainMenu
                 False -> 
                     case (ports, mounts) of 
